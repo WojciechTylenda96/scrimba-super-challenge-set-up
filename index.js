@@ -1,7 +1,7 @@
 import {propertyForSaleArr} from './properties/propertyForSaleArr.js'
 import {placeholderPropertyObj} from './properties/placeholderPropertyObj.js'
 
-function getPropertyHtml(propertiesArray=placeholderPropertyObj) {
+function getPropertyHtml(propertiesArray = [placeholderPropertyObj]) {
     const htmlCode = propertiesArray.map(function(property){
         return `
         <section class="card">
@@ -11,7 +11,7 @@ function getPropertyHtml(propertiesArray=placeholderPropertyObj) {
                 <h3>${property.priceGBP}£</h3>
                 <p>${property.comment}</p>
                 <h3>${property.roomsM2.reduce(function(total, currentM2){
-                    return total + currentM2})}m2</h3>
+                    return total + currentM2})}m&sup2;</h3>
             </div>
         </section> `
     }).join('')
@@ -48,4 +48,4 @@ This is the HTML template 👇. Replace everything in UPPERCASE with property da
 */
 
 /***** Modify 👇 by adding an argument to the function call ONLY. *****/
-document.getElementById('container').innerHTML = getPropertyHtml(propertyForSaleArr)
+document.getElementById('container').innerHTML = getPropertyHtml()
